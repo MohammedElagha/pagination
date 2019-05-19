@@ -2,6 +2,8 @@
 
 $query = "SELECT * FROM table";
 
+$offset = 0;
+
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 
@@ -10,10 +12,8 @@ if (isset($_GET['page'])) {
 	if ($page > 1) {
 		$offet = (($page-1)*10)-1;
 	}
+} 
 
-	$query = $query . " LIMIT 10 OFFSET " . $offet;
-} else {
-	$query = $query . " LIMIT 10 OFFSET 0";
-}
+$query = $query . " LIMIT 10 OFFSET " . $offet;
 
 ?>
